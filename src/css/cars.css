@@ -1,0 +1,140 @@
+:root {
+    --main-blue: #0076BE;
+    --main-red: #C03145;
+}
+
+
+#cars-top-nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+#top-cars-nav-list {
+    list-style-type: none;
+    padding-left: 2vw;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.cars-top-nav-icon {
+    width: 3.5vw;
+    height: 3.5vw;
+    padding: 1vw;
+    color: var(--main-blue)
+}
+
+#cars-turners-small-logo {
+    width: 3.5vw;
+    height: 3.5vw;
+    padding: 1vw 2vw ;
+}
+
+#cars-hero {
+    position: relative;
+}
+
+.hero-text {
+    position: relative;
+    display: flex;
+    font-size: 18vw;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 5vh;
+    margin-bottom: 6vh;
+
+}
+
+.hero-text::after {
+    content: '';
+    background: url('../../public/public_images/carscropcarspage.jpeg');
+    position: absolute;
+    z-index: -1;
+    background-size: 100vw;
+    opacity: 60%;
+    width: 100vw;
+    height: 100%;
+}
+
+#cars-options-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 5vw;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.cars-options-item {
+    color: white;
+    background-color: var(--main-blue);
+    width: 24vw;
+    height: 10vh;
+    text-align: center;
+    font-size: 3vw;
+    position: relative;
+    margin-bottom: 32vh;
+    border: 0.5vw solid var(--main-blue);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bolder;
+    margin-top: 3vh;
+}
+
+
+/** STYLING FOR CLICKABLE OPTIONS **/
+
+.cars-options-item::after {
+    content: '';
+    width: 24vw;
+    height: 40vh;
+    z-index: -1;
+    position: absolute;
+    right: -0.5vw;
+    border: 0.5vw solid var(--main-blue);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.cars-options-item:hover::after, .cars-options-item:hover {
+    border-color: var(--main-red);
+    background-color: var(--main-red);
+    cursor: pointer;
+}
+
+
+
+#buy-now-list-item::after {
+    background: url('../../public/public_images/buy.jpeg');
+    background-size: cover;
+    
+}
+
+#buy-online-list-item::after {
+    background: url('../../public/public_images/buy-online.jpeg');
+    background-size: cover;
+}
+
+#auctions-list-item::after {
+    background: url('../../public/public_images/auction-hamer.jpeg');
+    background-size: cover;
+}
+
+#locations-list-item::after {
+    background: url('../../public/public_images/nzmap.png');
+    background-size: cover;
+}
+
+#test-drive-list-item::after {
+    background: url('../../public/public_images/test-drive.jpeg');
+    background-size: cover;
+}
+
+#view-list-item::after {
+    background: url('../../public/public_images/carPark\ .jpeg');
+    background-size: cover;
+}

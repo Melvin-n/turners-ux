@@ -35,15 +35,16 @@ export default function Homepage() {
             <p id='scroll-text'>Scroll down</p>
         </article>
 
-        <nav id='homepage-navigation-options'>
-        {sectionsArray.map(section => (
-            <figure class='homepage-nav-figure'>
-                <h5 class='homepage-nav-text'> {section} </h5>
-                <img class='homepage-nav-image' src={`./public_images/${section}.jpeg`} alt='Car'></img>
-            </figure>
-        ))}
-            
-        </nav>
+        <ul id='homepage-navigation-options'>
+            <li class='homepage-nav-text' id='cars-homepage-nav'> Cars </li>
+            <li class='homepage-nav-text' id='insurance-homepage-nav'> Insurance </li>
+            <li class='homepage-nav-text' id='finance-homepage-nav'> Finance </li>
+            <li class='homepage-nav-text' id='auction-homepage-nav'> Auction </li>
+            <li class='homepage-nav-text' id='contact-homepage-nav'> Contact </li>
+            <li class='homepage-nav-text' id='terms-homepage-nav'> T & C </li>
+        </ul>
+
+        <div id='placeholder'></div>
 
     </div>
   )

@@ -102,37 +102,73 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 7vw;
-    margin: 10vh 0;
-    width: 100%;
-}
-
-.homepage-nav-figure {
-    width: 40vw;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
     margin: 0;
     padding: 0;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
 }
 
-.homepage-nav-image {
-    width: 40vw;
-    height: 30vh;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: 0.3vw solid var(--main-blue);
-    margin: 0;
-    object-fit: 0 -50% ;
-}
 
 .homepage-nav-text {
-    background-color: var(--main-blue);
     color: white;
-    height: 40%;
-    width: 40.6vw;
-    font-size: 5vw;
-    border-top-right-radius: 5px;
+    background-color: var(--main-blue);
+    width: 38vw;
+    height: 12vh;
+    text-align: center;
+    font-size: 3.5em;
+    position: relative;
+    margin-bottom: 15vh;
+    border: 0.5vw solid var(--main-blue);
     border-top-left-radius: 5px;
-    margin: 0;
+    border-top-right-radius: 5px;
+    font-weight: bolder;
+    margin-top: 3vh;
+}
+
+.homepage-nav-text::after {
+    content: '';
+    width: 38vw;
+    height: 35vh;
+    z-index: -1;
+    position: absolute;
+    right: -0.5vw;
+    border: 0.5vw solid var(--main-blue);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#cars-homepage-nav::after {
+    background: url('../../public/public_images/carPark\ .jpeg');
+    background-size: cover;
+}
+
+#finance-homepage-nav::after {
+    background: url('../../public/public_images/finance.jpeg');
+    background-size: cover;
+}
+
+#auction-homepage-nav::after {
+    background: url('../../public/public_images/auction.jpeg');
+    background-size: cover;
+}
+
+#contact-homepage-nav::after {
+    background: url('../../public/public_images/contact.jpeg');
+    background-size: cover;
+}
+
+#terms-homepage-nav::after {
+    background: url('../../public/public_images/t&c.jpeg');
+    background-size: cover;
+}
+
+#insurance-homepage-nav::after {
+    background: url('../../public/public_images/insurance.jpeg');
+    background-size: cover;
+
+}
+
+
+#placeholder {
+    height: 10vh;
 }
