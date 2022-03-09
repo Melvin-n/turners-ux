@@ -138,3 +138,90 @@
     background: url('../../public/public_images/carPark\ .jpeg');
     background-size: cover;
 }
+
+
+
+/** CARS PAGE FORM/SEARCH AREA **/
+
+#form-view-selection {
+    border: 2px solid var(--main-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 10vh 0 2vh 10vw;
+}
+
+#form-selection-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+
+}
+
+#form-selection-left p {
+    color: grey;
+    font-size: 1.2em;
+}
+
+.form-selection-icon {
+    font-size: 2em;
+}
+
+#form-selection-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#form-selection-right select {
+    width: 15vw;
+    height: 4vh;
+    padding: 0 2vw;
+}
+
+#car-amount {
+    display: flex;
+    flex-direction: row;
+    font-size: 4em;
+    justify-content:flex-start;
+    margin-left: 10vw;
+    margin-top: 4vh;
+    padding: 0;
+    gap: 1rem;
+}
+
+#car-amount h4 {
+    margin: 0;
+}
+
+#car-amount-number {
+    color: var(--main-blue)
+}
+
+#search-form {
+    width: 20vw;
+    border: 2px solid var(--main-blue);
+    background-color: #d6d6d6;
+    border-radius: 5px;
+    height: 82vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.search-form-input {
+    border: 2px solid var(--main-blue);
+    border-radius: 5px;
+    background-color: #d6d6d6;
+    outline: none;
+    width: 16vw;
+    height: 4vh;
+    margin: 2vh 1vw;
+    text-align: center;
+}
+
+.half-search-input {
+    width: 7vw;
+}
