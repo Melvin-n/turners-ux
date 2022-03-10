@@ -223,5 +223,30 @@
 }
 
 .half-search-input {
-    width: 7vw;
+    width: 6vw;
+}
+
+#search-form-results {
+    display: flex;
+    flex-direction: row;
+    padding: 4vh 5vw;
+    
+}
+
+#results-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.query-result-card {
+    border: 2px solid var(--main-blue);
+}
+
+.query-result-card img {
+    width: 30vw;
+    height: 40vh;
+    border-bottom: 2px solid var(--main-blue);
 }

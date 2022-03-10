@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {faUser,  faHouse, faList, faTh} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../css/cars.css'
@@ -8,21 +8,74 @@ export default function Cars() {
     const [search, setSearch] = useState('')
     const [model, setModel] = useState('')
     const [make, setMake] = useState('')
-    const [yearFrom, setYearFrom] = useState('')
-    const [yearTo, setYearTo] = useState('')
-    const [kmsFrom, setkmsFrom] = useState('')
-    const [kmsTo, setkmsTo] = useState('')
-    const [priceFrom, setPriceFrom] = useState('')
-    const [priceTo, setPriceTo] = useState('')
+    const [yearFrom, setYearFrom] = useState(0)
+    const [yearTo, setYearTo] = useState(2100)
+    const [kmsFrom, setkmsFrom] = useState(0)
+    const [kmsTo, setkmsTo] = useState(500000)
+    const [priceFrom, setPriceFrom] = useState(0)
+    const [priceTo, setPriceTo] = useState(1000000)
+    const [queryResults, setQueryResults] = useState([])
 
+    //build the query object based on which inputs have a value filled in
+    const buildQuery = () => {
+        let query = {}
+        
+        make === '' ? void(0) : query.make = make
+        model === '' ? void(0) : query.model = model
+        // yearFrom === '' ? void(0) : query.yearFrom = yearFrom
+        // yearTo === '' ? void(0) : query.yearTo = yearTo
+        kmsFrom === '' ? void(0) : query.odometer = {$gt:parseInt(kmsFrom), $lt:parseInt(kmsTo)}
+        kmsTo === '' ? void(0) : query.odometer = {$gt:parseInt(kmsFrom), $lt:parseInt(kmsTo)}
+        priceFrom === '' ? void(0) : query.price = {$gt:parseInt(priceFrom), $lt:parseInt(priceTo) }
+
+        priceTo === '' ? void(0) : query.price = {$gt:parseInt(priceFrom), $lt:parseInt(priceTo) }
+
+        return query
+
+    }
+
+    //query database for search results
+    const querySearch = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:8081/api/request`, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: buildQuery()
+            })
+        })
+        .then(res => res.json())
+        .then(data => setQueryResults(data))
+    }
+
+    //initial results on load
+    useEffect(() => {
+        fetch(`http://localhost:8081/api/onload`, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: buildQuery()
+            })
+        })
+        .then(res => res.json())
+        .then(data => setQueryResults(data))
+    }, [])
+
+    
 
   return (
     <div>
         <header id='cars-header'>
             <nav id='cars-top-nav'>
                 <ul id='top-cars-nav-list'>
-                    <li class='top-nav-item'> <FontAwesomeIcon className='cars-top-nav-icon' icon={faUser} /></li>
-                    <li class='top-nav-item'> <FontAwesomeIcon className='cars-top-nav-icon' icon={faHouse} /></li>
+                    <li className='top-nav-item'> <FontAwesomeIcon className='cars-top-nav-icon' icon={faUser} /></li>
+                    <li className='top-nav-item'> <FontAwesomeIcon className='cars-top-nav-icon' icon={faHouse} /></li>
                 </ul>
                 <img id='cars-turners-small-logo' src='./public_images/t-logo.jpeg' alt='logo' />
             </nav>
@@ -74,16 +127,31 @@ export default function Cars() {
         <section id='search-form-results'>
             <form id='search-form'>
                 <input type='text' className='search-form-input' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search' />
-                <input type='text' className='search-form-input' value={model} onChange={(e) => setModel(e.target.value)} placeholder='Model' />
                 <input type='text' className='search-form-input' value={make} onChange={(e) => setMake(e.target.value)} placeholder='Make' />
-                <input type='text' className='search-form-input half-search-input' value={yearFrom} onChange={(e) => setYearFrom(e.target.value)} placeholder='Year' />
-                <input type='text' className='search-form-input half-search-input' value={yearTo} onChange={(e) => setYearTo(e.target.value)} placeholder='Year' />
-                <input type='text' className='search-form-input half-search-input' value={kmsFrom} onChange={(e) => setkmsFrom(e.target.value)} placeholder='Kms' />
-                <input type='text' className='search-form-input half-search-input' value={kmsTo} onChange={(e) => setkmsTo(e.target.value)} placeholder='Kms' />
-                <input type='text' className='search-form-input half-search-input' value={priceFrom} onChange={(e) => setPriceFrom(e.target.value)} placeholder='Price' />
-                <input type='text' className='search-form-input half-search-input' value={priceTo} onChange={(e) => setPriceTo(e.target.value)} placeholder='Price' />
-                <input type='submit' className='search-form-input' value='Apply Filter' />
+                <input type='text' className='search-form-input' value={model} onChange={(e) => setModel(e.target.value)} placeholder='Model' />
+                <input type='number' className='search-form-input half-search-input' value={yearFrom} onChange={(e) => setYearFrom(e.target.value)} placeholder='Year' />
+                <input type='number' className='search-form-input half-search-input' value={yearTo} onChange={(e) => setYearTo(e.target.value)} placeholder='Year' />
+                <input type='number' className='search-form-input half-search-input' value={kmsFrom} onChange={(e) => setkmsFrom(e.target.value)} placeholder='Kms' />
+                <input type='number' className='search-form-input half-search-input' value={kmsTo} onChange={(e) => setkmsTo(e.target.value)} placeholder='Kms' />
+                <input type='number' className='search-form-input half-search-input' value={priceFrom} onChange={(e) => setPriceFrom(e.target.value)} placeholder='Price' />
+                <input type='number' className='search-form-input half-search-input' value={priceTo} onChange={(e) => setPriceTo(e.target.value)} placeholder='Price' />
+                <input type='submit' className='search-form-input' value='Apply Filter' onClick={querySearch} />
             </form>
+
+            <div id='results-section'>
+                <ul id='results-list'>
+                    {queryResults.map(res => (
+                        <li className='query-result-card'>
+                            <img src={`./public_images/${res.image}.jpg`} alt={res.image}/>
+                            <h4>{res.title}</h4>
+                            <h5>{res.subtitle}</h5>
+                            <p>Location: {res.location}</p>
+                            <p>Odometer: {res.odometer}</p>
+                            <h3>${res.price}</h3>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </section>
     </div>
   )

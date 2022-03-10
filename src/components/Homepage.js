@@ -3,7 +3,6 @@ import '../css/homepage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faUser, faPhone, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
-let sectionsArray = ['cars', 'insurance', 'finance', 'auction', 'contact', 't & c']
 
 
 export default function Homepage() {
@@ -12,17 +11,17 @@ export default function Homepage() {
         <header id='header-image-logo'>
         <div id='header-logo-design'>
             <img id='header-logo' src='./public_images/turnersCar-logo.jpg' alt='logo'/>
-            <div class='header-line' id='header-line-1'></div>
-            <div class='header-line' id='header-line-2'></div>
-            <div class='header-line' id='header-line-3'></div>
+            <div className='header-line' id='header-line-1'></div>
+            <div className='header-line' id='header-line-2'></div>
+            <div className='header-line' id='header-line-3'></div>
         </div>
             <img id='car-logo-image' src='./public_images/home-car.png' alt='carimage' />
         </header>
         <navbar>
             <ul id='homepage-navbar'>
-                <li class='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faLocationDot} /></li>
-                <li class='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faUser} /></li>
-                <li class='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faPhone} /></li>
+                <li className='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faLocationDot} /></li>
+                <li className='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faUser} /></li>
+                <li className='navbar-list-item'><FontAwesomeIcon className='navbar-icon' icon={faPhone} /></li>
             </ul>
         </navbar>
         <h2>Welcome to Turners</h2>
@@ -36,12 +35,12 @@ export default function Homepage() {
         </article>
 
         <ul id='homepage-navigation-options'>
-            <li class='homepage-nav-text' id='cars-homepage-nav'> Cars </li>
-            <li class='homepage-nav-text' id='insurance-homepage-nav'> Insurance </li>
-            <li class='homepage-nav-text' id='finance-homepage-nav'> Finance </li>
-            <li class='homepage-nav-text' id='auction-homepage-nav'> Auction </li>
-            <li class='homepage-nav-text' id='contact-homepage-nav'> Contact </li>
-            <li class='homepage-nav-text' id='terms-homepage-nav'> T & C </li>
+            <li className='homepage-nav-text' id='cars-homepage-nav'> Cars </li>
+            <li className='homepage-nav-text' id='insurance-homepage-nav'> Insurance </li>
+            <li className='homepage-nav-text' id='finance-homepage-nav'> Finance </li>
+            <li className='homepage-nav-text' id='auction-homepage-nav'> Auction </li>
+            <li className='homepage-nav-text' id='contact-homepage-nav'> Contact </li>
+            <li className='homepage-nav-text' id='terms-homepage-nav'> T & C </li>
         </ul>
 
         <div id='placeholder'></div>
