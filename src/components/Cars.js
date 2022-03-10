@@ -37,7 +37,7 @@ export default function Cars() {
     //query database for search results
     const querySearch = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:5000/api/request`, {
+        fetch(`http://turners.eba-tn9xpaqh.us-east-2.elasticbeanstalk.com/api/query`, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 
@@ -53,7 +53,7 @@ export default function Cars() {
 
     //initial results on load
     useEffect(() => {
-        fetch(`http://localhost:5000/api/onload`, {
+        fetch(`http://turners.eba-tn9xpaqh.us-east-2.elasticbeanstalk.com/api/onload`, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 
