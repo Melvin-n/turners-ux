@@ -37,7 +37,7 @@ export default function Cars() {
     //query database for search results
     const querySearch = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:8081/api/request`, {
+        fetch(`http://localhost:5000/api/request`, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 
@@ -53,7 +53,7 @@ export default function Cars() {
 
     //initial results on load
     useEffect(() => {
-        fetch(`http://localhost:8081/api/onload`, {
+        fetch(`http://localhost:5000/api/onload`, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 
